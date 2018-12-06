@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,15 +46,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Game.cs" />
-    <Compile Include="Main.cs">
+    <Compile Include="Utilities\GameConverter.cs" />
+    <Compile Include="ViewsControllers\EditDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="ViewsControllers\EditDialog.Designer.cs">
+      <DependentUpon>EditDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewsControllers\AddDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewsControllers\AddDialog.Designer.cs">
+      <DependentUpon>AddDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewsControllers\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewsControllers\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Main.resx">
+    <Compile Include="Utilities\Serializer.cs" />
+    <EmbeddedResource Include="ViewsControllers\EditDialog.resx">
+      <DependentUpon>EditDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewsControllers\AddDialog.resx">
+      <DependentUpon>AddDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewsControllers\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -1,50 +1,36 @@
-﻿using System;
+﻿using COMP7082.Utilities;
+using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace COMP7082
+namespace COMP7082.Models
 {
     public class GameHistory
     {
-        public ReadOnlyCollection<Game> Games { get { return games.AsReadOnly(); } }
-        private List<Game> games;
+        public List<Game> games;
+        private const string SAVE_LOCATION = "gamehistory.bin";
 
-        public GameHistory ()
+        public GameHistory()
         {
-            games = new List<Game>
+            games = Load();
+            if (games == null)
             {
-                new Game
-                {
-                    player = "Mario",
-                    opponent = "Luigi",
-                    stage = "Battlefield",
-                    result = Result.Win,
-                    timeStamp = DateTime.UtcNow.ToString()
-                }
-            };
+                games = new List<Game>();
+            }
         }
 
-        public Game Get (int index)
+        public void Save ()
         {
-            return games[index];
+            Serializer.Save(SAVE_LOCATION, games);
         }
 
-        public void Remove (int index)
+        public List<Game> Load ()
         {
-            games.RemoveAt(index);
-        }
-
-        public void Add (Game game)
-        {
-            games.Add(game);
+            return Serializer.Load<List<Game>>(SAVE_LOCATION);
         }
     }
 
     [Serializable]
-    public class Game
+    public struct Game
     {
         public string player;
         public string opponent;
