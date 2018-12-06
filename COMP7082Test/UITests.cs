@@ -34,6 +34,15 @@ namespace COMP7082Test
             window = null;
         }
 
+        [ClassCleanup]
+        public static void ClassTeardown ()
+        {
+            if (File.Exists("gamehistory.bin"))
+            {
+                File.Delete("gamehistory.bin");
+            }
+        }
+
         [TestMethod]
         public void AddTest ()
         {
