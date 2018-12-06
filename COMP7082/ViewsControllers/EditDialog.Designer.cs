@@ -168,7 +168,7 @@
             this.Controls.Add(this.characterBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "EditDialog";
-            this.Text = "Add";
+            this.Text = "Edit";
             this.resultBox.ResumeLayout(false);
             this.resultBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

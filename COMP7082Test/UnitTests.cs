@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace COMP7082Test
 {
     [TestClass]
-    public class Tests
+    public class UnitTests
     {
         [TestMethod]
         public void TestModelIntegrity ()
