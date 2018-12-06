@@ -15,9 +15,7 @@ namespace COMP7082.Utilities
                     bin.Serialize(stream, objToSerialize);
                 }
             }
-            catch (IOException)
-            {
-            }
+            catch (IOException) {}
         }
 
         public static T Load<T>(string filePath) where T : new()

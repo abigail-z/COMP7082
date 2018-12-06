@@ -11,7 +11,18 @@ namespace COMP7082.Models
 
         public GameHistory()
         {
-            games = Load();
+            games = Serializer.Load<List<Game>>(SAVE_LOCATION);
+
+            if (games == null)
+            {
+                games = new List<Game>();
+            }
+        }
+
+        public GameHistory(string location)
+        {
+            games = Serializer.Load<List<Game>>(location);
+
             if (games == null)
             {
                 games = new List<Game>();
@@ -21,11 +32,6 @@ namespace COMP7082.Models
         public void Save ()
         {
             Serializer.Save(SAVE_LOCATION, games);
-        }
-
-        public List<Game> Load ()
-        {
-            return Serializer.Load<List<Game>>(SAVE_LOCATION);
         }
     }
 
