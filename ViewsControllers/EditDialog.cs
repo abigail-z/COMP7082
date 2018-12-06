@@ -83,7 +83,7 @@ namespace COMP7082.ViewsControllers
         {
             if (t.Text.Length == 0)
             {
-                errorProvider.SetError(t, "Cannot be empty.");
+                errorProvider.SetError(t, "Required Field");
                 return 1;
             }
 
